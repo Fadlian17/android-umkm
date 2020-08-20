@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="photo"
+            type="String" />
+
+        <variable
+            name="viewModel"
+            type="com.alfansyah.produkku.viewmodels.ProductViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        tools:context=".UmkmActivity">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvProduct"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/space_default"
+            app:cardCornerRadius="80dp">
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilProduct"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cvProduct"
+            android:layout_marginStart="@dimen/space_default"
+            android:layout_marginEnd="@dimen/space_default"
+            android:layout_marginBottom="@dimen/space_default">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama produk"
+                android:inputType="textCapWords"
+                android:textColor="@color/font_based"
+                android:text="@{viewModel.product.name}"
+                android:textSize="@dimen/text_default" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPrice"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilProduct"
+            android:layout_marginStart="@dimen/space_default"
+            android:layout_marginBottom="@dimen/space_default"
+            android:layout_toStartOf="@id/tilQuantity">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harga"
+                android:inputType="number"
+                android:textColor="@color/font_based"
+                android:text="@{viewModel.product.price + ``}"
+                android:textSize="@dimen/text_default" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilQuantity"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilProduct"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/space_default"
+            android:layout_marginEnd="@dimen/space_default"
+            android:layout_marginBottom="@dimen/space_default">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jumlah"
+                android:inputType="number"
+                android:textColor="@color/font_based"
+                android:text="@{viewModel.product.quantity + ``}"
+                android:textSize="@dimen/text_default" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDescription"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilPrice"
+            android:layout_marginStart="@dimen/space_default"
+            android:layout_marginEnd="@dimen/space_default">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|top"
+                android:hint="Deskripsi produk"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:maxLines="3"
+                android:textColor="@color/font_based"
+                android:text="@{viewModel.product.description}"
+                android:textSize="@dimen/text_default" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilDescription"
+            android:layout_margin="@dimen/space_default"
+            android:backgroundTint="@color/colorAccent"
+            android:padding="@dimen/space_default"
+            android:text="Tambah Produk"
+            app:cornerRadius="@dimen/space_small" />
+
+    </RelativeLayout>
+
+</layout>

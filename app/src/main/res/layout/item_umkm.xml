@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.alfansyah.produkku.entities.Product" />
+
+        <variable
+            name="price"
+            type="String" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_small"
+        android:padding="@dimen/space_small"
+        app:cardCornerRadius="@dimen/space_small">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                tools:src="@tools:sample/avatars"
+                app:file="@{product.photo}"/>
+
+            <ImageView
+                android:id="@+id/ivUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_small"
+                android:src="@drawable/ic_update"/>
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_small"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_delete"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tvProduct"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_quantity"
+                android:fontFamily="monospace"
+                android:padding="@dimen/space_small"
+                android:textColor="@android:color/white"
+                android:text="@{product.quantity + ``}"
+                android:textSize="@dimen/text_default"
+                android:textStyle="bold"
+                tools:text="10" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivProduct"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:padding="@dimen/space_small"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_default"
+                android:textStyle="bold"
+                tools:text="@tools:sample/full_names"
+                android:text="@{product.name}"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvProduct"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="end"
+                android:paddingStart="@dimen/space_small"
+                android:paddingEnd="@dimen/space_small"
+                android:textColor="@color/colorDanger"
+                android:textSize="@dimen/text_large"
+                tools:text="Rp. 100.000.000"
+                android:text="@{price}"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPrice"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="@dimen/space_small"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_small"
+                tools:text="@tools:sample/lorem/random"
+                android:text="@{product.description}"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:layout_below="@id/tvDescription"
+                android:textSize="@dimen/text_default"
+                android:text="ADD TO CART"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
